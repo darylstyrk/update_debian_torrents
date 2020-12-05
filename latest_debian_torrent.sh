@@ -10,11 +10,11 @@ check_4_new() {
 }
 
 fetch_CDs() {
-	lynx --dump https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/ | awk '/\.torrent$/ {print $NF}' | while read; do wget -c -P ~/.torrents/ ${REPLY} ; done
+	lynx --dump https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/ | awk '/\.torrent$/ {print $NF}' | sort -u | while read; do wget -c -P ~/.torrents/ ${REPLY} ; done
 	}
 
 fetch_DVDs(){ 
-	lynx --dump https://cdimage.debian.org/debian-cd/current/amd64/bt-dvd/ | awk '/\.torrent$/ {print $NF}' | while read; do wget -c -P ~/.torrents/ ${REPLY} ; done
+	lynx --dump https://cdimage.debian.org/debian-cd/current/amd64/bt-dvd/ | awk '/\.torrent$/ {print $NF}' | sort -u | while read; do wget -c -P ~/.torrents/ ${REPLY} ; done
 	}	
 
 fetch_CDs
